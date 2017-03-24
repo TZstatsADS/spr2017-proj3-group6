@@ -160,16 +160,16 @@ save(fit_advanced, file="../output/fit_advanced.RData")
 Feed the final training model with the completely holdout testing data. Construct lbp feature with lbpeature.m file (Modification to run: change the first line from: cd 'spr2017-proj3-group6/data/train', into cd 'spr2017-proj3-group6/data/test', to create the features for the test set) in Matlab first, then make prediction based on thoes features.
 
 ```{r test}
-tm_test=NA
-if(run.test){
-  # feature_lbp_test <- read.csv('../data/test/features/feature_lbp.csv')
-  # save(feature_lbp_test, file = "../output/feature_lbp_test.Rdata")
-  load(file=paste0("../output/feature_lbp_test.Rdata"))
-  
-  load(file="../output/fit_advanced.RData")
-  tm_test <- system.time(pred_test <- test(fit_advanced, as.matrix(feature_lbp_test)))
-  save(pred_test, file="../output/pred_test.RData")
-}
+# tm_test=NA
+# if(run.test){
+#   # feature_lbp_test <- read.csv('../data/test/features/feature_lbp.csv')
+#   # save(feature_lbp_test, file = "../output/feature_lbp_test.Rdata")
+#   load(file=paste0("../output/feature_lbp_test.Rdata"))
+#   
+#   load(file="../output/fit_advanced.RData")
+#   tm_test <- system.time(pred_test <- test(fit_advanced, as.matrix(feature_lbp_test)))
+#   save(pred_test, file="../output/pred_test.RData")
+# }
 ```
 
 ### Summarize Running Time
@@ -180,5 +180,5 @@ Prediction performance matters, do does the running times for constructing featu
 # cat("Time for constructing training features=", tm_feature_train[1], "s \n")
 # cat("Time for constructing testing features=", tm_feature_test[1], "s \n")
 cat("Time for training model=", tm_train[1], "s \n")
-cat("Time for making prediction=", tm_test[1], "s \n")
+# cat("Time for making prediction=", tm_test[1], "s \n")
 ```

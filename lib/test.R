@@ -1,8 +1,6 @@
 
-test <- function(model,feature){
-        base.model <- models$baseline 
-        adv.model <- models$adv
-        base.prediction <- predict(base.model,feature)
-        adv.prediction <- predict(adv.model,feature)
-        return(list(baseline=base.prediction,adv=adv.prediction))
+test <- function(model, feature){
+  pred <- predict(model, feature, type='response')
+  pred <- as.numeric(pred > 0.5)
+  return(pred)
 }
